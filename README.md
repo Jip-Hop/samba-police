@@ -2,7 +2,7 @@
 
 Report missing/mangled files shared via Samba (illegal filename characters, symlinks). Useful after AFP to SMB/CIFS migration, or to regularly check file compatibility with SMB.
 
-SMB may mangle your filenames due to illegal characters (e.g. `" \ / : | < > * ?` or names ending with a dot or space). Files may even be missing when accessing the share. For example in the case dangling symlinks. Since SMB version 2 symlinks will instead be dereferenced (target file will be served). Dangling symlinks will be missing... The behavior you get depends on the SMB config and files in question. It's not trivial to make a list of filenames which will cause problems.
+SMB may mangle your filenames due to illegal characters (e.g. `" \ / : | < > * ?` or [names ending with a dot or space](https://bugzilla.samba.org/show_bug.cgi?id=11207)). Files may even be missing when accessing the share. For example in the case dangling symlinks. Since SMB version 2 symlinks will instead be dereferenced (target file will be served). Dangling symlinks will be missing... The behavior you get depends on the SMB config and files in question. It's not trivial to make a list of filenames which will cause problems.
 
 If you want to be sure your files are safe to export via SMB, no files are missing and filenames aren't garbled, you should run Samba Police. Instead of trying to identify all possible scenarios which may cause issues, Samba Police will check if all files in the source directory are also present on the SMB share. It will report files which are missing (either completely missing or with mangled names). It's supposed to run on the SMB host.
 
