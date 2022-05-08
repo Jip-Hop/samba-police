@@ -1,0 +1,19 @@
+# Newline separated list of paths or filenames to ignore
+
+# Filenames (entries without a leading /) can match in every directory
+# Paths (entries starting with a leading /) can match a single file or directory
+# Ignoring a directory will also ignore everything inside it
+
+# I recommend you run samba-police.py and redirect the output to a file,
+# then remove all the paths you don't want to ignore and keep the ones you need
+# Then use that file as your ignore file
+# That way you can be sure the paths are properly formatted (including trailing whitespace)
+
+# Filenames/paths which include a newline character can't be ignored currently
+# So these are always reported until you remove the newline from the filename (recommended),
+# or you can ignore the parent directory (not recommended)...
+
+@eaDir
+venv
+node_modules
+/path/to/dir/ending/with/dot/in/name.
